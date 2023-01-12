@@ -1,5 +1,5 @@
 // acessa o campo input de ação
-let acao = document.getElementById('acao');
+let tempo = document.getElementById('tempo');
 // acessa o campo input de pausa
 let pausa = document.getElementById('pausa');
 // acessa o campo input de Sessões
@@ -33,9 +33,9 @@ function executar() {
 // Função para iniciar a contagem
 function iniciar() {
     // Verificação se os campos de ação, pausa e sessões estão preenchidos
-    if (acao.value == 0) {
-        document.getElementById('erro_acao').innerHTML = "Adicione os minutos"
-        acao.focus()
+    if (tempo.value == 0) {
+        document.getElementById('erro_tempo').innerHTML = "Adicione os minutos"
+        tempo.focus()
     } else if (pausa.value == 0) {
         document.getElementById('erro_pausa').innerHTML = "Adicione a pausa"
         pausa.focus()
@@ -48,19 +48,19 @@ function iniciar() {
         // Mostrar o botão pause
         pause.style.setProperty('display', 'block', 'important')
 
-        localStorage.setItem('acao', String(acao.value));
+        localStorage.setItem('tempo', String(tempo.value));
         localStorage.setItem('pausa', String(pausa.value));
         localStorage.setItem('sessoes', String(sessoes.value));
 
         document.getElementById('config').style.setProperty('display', 'none', 'important');
         document.getElementById('timer').style.setProperty('display', 'block', 'important');
 
-        momentoAcao();
+        momentoTempo();
 
     }
 }
 
-function momentoAcao() {
+function momentoTempo() {
 
     let sessoes_valor = localStorage.getItem('sessoes');
 
@@ -71,12 +71,12 @@ function momentoAcao() {
     }
 
     let title = document.getElementById('title');
-    title.innerHTML = "AÇÃO"
+    title.innerHTML = "TEMPO"
     title.style.fontSize = '25pt'
     title.style.fontWeight = 'bold'
     title.style.setProperty('color', '#28a745', 'important');
 
-    min = Number(localStorage.getItem('acao'));
+    min = Number(localStorage.getItem('tempo'));
     min = min - 1
     segundos = 59
 
@@ -155,7 +155,7 @@ function momentoPausa() {
                     document.getElementById('fim').style.setProperty('display', 'block', 'important');
                 } else {
                     volta.play();
-                    momentoAcao();
+                    momentoTempo();
                 }
 
                 volta.play();
