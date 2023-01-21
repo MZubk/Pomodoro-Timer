@@ -5,7 +5,8 @@ let pausa = document.getElementById('pausa');
 // acessa o campo input de Sessões
 let sessoes = document.getElementById('sessoes');
 // acessa o campo input de segundos
-let segundos
+let segundos;
+
 
 // Acessa os audios de alertas e colcoca nas variáveis
 var final = new Audio("./audio/final.mp3")
@@ -16,6 +17,7 @@ var intervalo = new Audio("./audio/intervalo.mp3")
 var lofi = document.getElementById('lofi')
 var pause = document.getElementById('pause')
 var play = document.getElementById('play')
+
 
 function pausar() {
     lofi.pause();
@@ -76,68 +78,54 @@ function momentoTempo() {
     title.style.fontWeight = 'bold'
     title.style.setProperty('color', '#28a745', 'important');
 
-    min = Number(localStorage.getItem('tempo'));
-    min = min - 1
-    segundos = 59
+    let min = Number(localStorage.getItem('tempo'));
+    let segundos = 59;
 
-    document.getElementById('minutes_ok').innerHTML = min
-    document.getElementById('seconds_ok').innerHTML = segundos
-
-    var min_interval = setInterval(minTimer, 60000)
-    var seg_interval = setInterval(segTimer, 1000)
-
-    function minTimer() {
-        min = min - 1
-        document.getElementById('minutes_ok').innerHTML = min
-    }
-
-    function segTimer() {
-        segundos = segundos - 1
-        document.getElementById('seconds_ok').innerHTML = segundos
-
-        if (segundos <= 0) {
-            if (min <= 0) {
-                clearInterval(min_interval)
-                clearInterval(seg_interval)
-
-                final.play();
-
-                momentoPausa();
-
-            }
-
-            segundo = 60
+    document.getElementById('minutes_ok').innerHTML = (min < 10) ? "0" + min : min;
+    document.getElementById('seconds_ok').innerHTML = (segundos < 10) ? "0" + segundos : segundos;
+    
+    let intervalId = setInterval(() => {
+        segundos--;
+        if (segundos < 0) {
+            min--;
+            segundos = 59;
         }
-    }
+        document.getElementById('minutes_ok').innerHTML = (min < 10) ? "0" + min : min;
+        document.getElementById('seconds_ok').innerHTML = (segundos < 10) ? "0" + segundos : segundos;
+        if (min < 0) {
+            clearInterval(intervalId);
+            final.play();
+            momentoPausa();
+        }
+    }, 1000);
 
 }
 
 function momentoPausa() {
-
+    
     let title = document.getElementById('title');
     title.innerHTML = "PAUSA"
     title.style.fontSize = '25pt'
     title.style.fontWeight = 'bold'
     title.style.setProperty('color', '#dc3545', 'important');
 
-    min_pausa = Number(localStorage.getItem('pausa'));
-    min_pausa = min_pausa - 1
-    segundos = 59
+    let min_pausa = Number(localStorage.getItem('tempo_pausa'));
+    let segundos = 59;
 
-    document.getElementById('minutes_ok').innerHTML = min_pausa
-    document.getElementById('seconds_ok').innerHTML = segundos
+    document.getElementById('minutes_ok').innerHTML = min_pausa.toString().padStart(2,"0");
+    document.getElementById('seconds_ok').innerHTML = segundos.toString().padStart(2,"0");
 
-    var min_interval = setInterval(minTimer, 60000)
-    var seg_interval = setInterval(segTimer, 1000)
+    var min_interval = setInterval(minTimer, 60000);
+    var seg_interval = setInterval(segTimer, 1000);
 
     function minTimer() {
         min_pausa = min_pausa - 1
-        document.getElementById('minutes_ok').innerHTML = min_pausa
+        document.getElementById('minutes_ok').innerHTML = min_pausa.toString().padStart(2,"0");
     }
 
     function segTimer() {
         segundos = segundos - 1
-        document.getElementById('seconds_ok').innerHTML = segundos
+        document.getElementById('seconds_ok').innerHTML = segundos.toString().padStart(2,"0");
 
         if (segundos <= 0) {
             if (min_pausa <= 0) {
@@ -167,3 +155,4 @@ function momentoPausa() {
 
     }
 }
+
