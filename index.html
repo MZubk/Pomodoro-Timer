@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="./css/reset.css">
     <!--font-awesome-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!-- icone -->
     <link rel="icon" href="./img/logo.png" type="logo.png">
     <title>Timer Pomodoro</title>
 </head>
 
-<body class="bg-dark">
+<body>
     <!--Menu-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand text-monospace text-white" href="index.html">Timer Pomodoro</a>
         <div class="ml-auto">
             <a onclick="pausar()">
@@ -50,7 +50,7 @@
                                         for="tempo">Duração</label>
                                     <input type="number"
                                         class="form-control form-group form-group-lg bg-dark border-0 shadow text-white"
-                                        id="tempo">
+                                        id="tempo"  required placeholder="25">
                                     <small class="text-danger" id='erro_tempo'></small>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                                         for="pausa">Pausa</label>
                                     <input type="number"
                                         class="form-control form-group form-group-lg bg-dark border-0 shadow text-white"
-                                        id="pausa">
+                                        id="pausa"  required placeholder="5">
                                     <small class="text-danger" id='erro_pausa'></small>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                                         for="sessao">Sessões</label>
                                     <input type="number"
                                         class="form-control form-group form-group-lg bg-dark border-0 shadow text-white"
-                                        id="sessoes">
+                                        id="sessoes"  required placeholder="4">
                                     <small class="text-danger" id='erro_sessoes'></small>
                                 </div>
                             </div>
@@ -128,12 +128,35 @@
                 </div>
             </div>
         </div>
-        <!-- /Finalização -->
-
-
+        <!--/Finalização -->
     </div>
+    <!--/Container-->
+    <!--info-->
+    <div class="info">
+        <section>
+            <h4>Método Pomodoro</h4>
+            <p>Pomodoro é um método de gestão de tempo desenvolvido por Francesco Cirillo na década de 1980.
+                Consiste em dividir o trabalho em blocos de tempo de 25 minutos, chamados de "pomodoros", separados por
+                intervalos curtos de 5 a 10 minutos. Após quatro pomodoros, é recomendado fazer uma pausa mais longa de
+                15 a 30 minutos.<br>
 
+                Durante cada pomodoro, a ideia é se concentrar em uma única tarefa sem interrupções, distrações ou
+                procrastinação, para aumentar a produtividade e reduzir o cansaço mental. A técnica é baseada na ideia
+                de que as pausas frequentes e regulares ajudam a manter a motivação e a focar no trabalho.<br>
 
+                A técnica Pomodoro é amplamente utilizada para melhorar a gestão do tempo, especialmente em tarefas que
+                requerem muita concentração e atenção, como estudos, projetos, redações, programação, entre outras
+                atividades. Há também diversos aplicativos e ferramentas que auxiliam na implementação da técnica.</p>
+        </section>
+    </div>
+    <!--/info-->
+    <!--footer-->
+    <footer>
+        <p class="copyright">&copy; Copyright MZubk 2023</p>
+    </footer>
+    <!--/footer-->
+
+    <!--javascript-->>
     <script src="js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

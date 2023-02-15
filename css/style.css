@@ -1,3 +1,18 @@
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(-25deg,#113573, #000000);
+}
+
+.navbar {
+    background: black;
+}
+
+/* O !important serve para priorizar essa configuração especifica */
 input{
     width: 150px !important;
     height: 150px !important;
@@ -5,6 +20,7 @@ input{
     text-align: center !important;
 }
 
+/* Tirar o botão de mais e menos do input tipo number */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -33,4 +49,19 @@ h2{
 
 #timer{
     display: none !important;
+}
+
+.info {
+    margin: 2.6rem 5rem;
+    color: #FFE7B5;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: black !important;
+    padding: 1.125rem 0;
+    text-align: center;
 }
