@@ -5,7 +5,7 @@ body {
     flex-direction: column;
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(-25deg,#113573, #000000);
+    background: linear-gradient(#000F2B, #010A2D, #000F2B);
 }
 
 .navbar {
