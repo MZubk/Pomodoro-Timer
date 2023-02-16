@@ -5,7 +5,7 @@ body {
     flex-direction: column;
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(#000F2B, #010A2D, #000F2B);
+    background: linear-gradient(#00205A, #212121);
 }
 
 .navbar {
@@ -32,7 +32,8 @@ input[type="number"]{
 }
 
 .time {
-    color: #ffffff;
+    background-color: #010A2D;
+    color: #08498D;
     text-align: center;
     width: 20rem;
     height: 20rem;
