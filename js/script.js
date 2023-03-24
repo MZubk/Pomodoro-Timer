@@ -7,7 +7,6 @@ let sessoes = document.getElementById('sessoes');
 // acessa o campo input de segundos
 let segundos;
 
-
 // Acessa os audios de alertas e colcoca nas variáveis
 var final = new Audio("./audio/final.mp3")
 var volta = new Audio("./audio/volta.mp3")
@@ -31,7 +30,6 @@ function executar() {
     play.style.setProperty('display', 'none', 'important');
     pause.style.setProperty('display', 'block', 'important');
 }
-
 
 // Função para iniciar a contagem
 function iniciar() {

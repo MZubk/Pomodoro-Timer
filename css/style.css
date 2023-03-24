@@ -1,19 +1,26 @@
-
+:root {
+    --main-preto: #0d0d0d;
+    --second-preto: #404040;
+    --main-azul: #409dbf;
+    --second-azul: #194759;
+    --main-branco: #FEFEFE;
+    --second-branco: #f0f2f2;
+}
 
 body {
     display: flex;
     flex-direction: column;
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(45deg,#0d1017, #1951A8);
+    background: linear-gradient(60deg, var(--main-preto), var(--second-preto));
 }
 
 .navbar {
-    background: black;
+    background: var(--main-preto);
 }
 
 /* O !important serve para priorizar essa configuração especifica */
-input{
+input {
     width: 150px !important;
     height: 150px !important;
     font-size: 50pt !important;
@@ -27,13 +34,13 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 
-input[type="number"]{
+input[type="number"] {
     -moz-webkit-appearance: none;
 }
 
 .time {
-    background-color: #010A2D;
-    color: #FEFEFE;
+    background-color: var(--second-azul);
+    color: var(--second-branco);
     text-align: center;
     width: 20rem;
     height: 20rem;
@@ -44,25 +51,27 @@ input[type="number"]{
     margin: auto !important;
 }
 
-h2{
+h2 {
     font-size: 90pt;
 }
 
-#timer{
+#timer {
     display: none !important;
 }
 
 .info {
     margin: 2.6rem 5rem;
-    color: #FFE7B5;
+    color: var(--second-branco);
+    font-family: 'roboto'
 }
 
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    color: white;
+    color: var(--main-branco);
     background-color: black !important;
     padding: 1.125rem 0;
     text-align: center;
+    font-family: 'roboto'
 }
